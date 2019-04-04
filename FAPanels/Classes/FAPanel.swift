@@ -68,6 +68,20 @@ open class FAPanelController: UIViewController {
         return self.state
     }
     
+    open func closeLeft(animated: Bool, afterThat completion: (() -> Void)?) {
+        
+        if isLeftPanelOnFront {
+            slideLeftPanelOut(animated: animated, afterThat: completion)
+        } else {
+            
+            if centerPanelHidden {
+                centerPanelHidden = false
+                unhideCenterPanel()
+            }
+            openCenter(animated: animated, shouldBounce: configs.bounceOnCenterPanelOpen, afterThat: completion)
+        }
+    }
+    
     open func center( _ controller: UIViewController, afterThat completion: (() -> Void)?) {
         setCenterPanelVC(controller, afterThat: completion)
     }
