@@ -64,7 +64,9 @@ open class FAPanelController: UIViewController {
     
     
     open var configs = FAPanelConfigurations()
-
+    public var panelVisibleState: FAPanelVisibleState {
+        return self.state
+    }
     
     open func center( _ controller: UIViewController, afterThat completion: (() -> Void)?) {
         setCenterPanelVC(controller, afterThat: completion)
