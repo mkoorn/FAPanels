@@ -357,7 +357,9 @@ open class FAPanelController: UIViewController {
                     _leftPanelVC!.didMove(toParent: self)
                 }
                 else {
-                    leftPanelContainer.isHidden = true
+                    if leftPanelContainer != nil {
+                        leftPanelContainer.isHidden = true
+                    }                    
                 }
                 if state == .left {
                     visiblePanelVC = _leftPanelVC
